@@ -8,7 +8,19 @@ $(document).ready(function(){
   $('#formulario').on('submit',function(event ){
     event.preventDefault();
     })
-    $('#fila-4').delegate('input','keyup',function(){});
+    $('#fila-4').delegate('input','keyup',function(){
+   var todo_bien = true;
+   $('#fila-4').find('input').each(function(){
+     if( $( this ).val() == '' ){
+       todo_bien = false;
+     }
+   });
+   if( todo_bien ){
+     $('#fila-5').show();
+   }else{
+     $('#fila-5').hide();
+   }
+ });
   // Input de correo
 $("input#correo").on("keyup", function(){
   datos_contacto.correo = $("input#correo").val().trim();
